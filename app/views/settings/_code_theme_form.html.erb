@@ -1,4 +1,4 @@
-<fieldset class="box <%= 'hidden' if Setting.plugin_redmine_highlightjs[:allow_redefine].nil? %>">
+<fieldset class="box <%= 'hidden' unless HighlightJsSyntaxHighlighting.settings[:allow_redefine] %>">
 
 <legend><%=h l(:code_theme_title) %></legend>
 <div class="tabular">
@@ -7,8 +7,8 @@
         <%=select_tag("pref[code_theme]", options_for_select(
             {
                 l(:label_default) => CodeThemeUserSetting::DEFAULT_CODE_THEME
-            }.merge(CodeThemeUserSetting::CODE_THEMES),
-            user.preference.code_theme)) 
+            }.merge(CodeThemeUserSetting.code_themes),
+            user.preference.code_theme))
         %>
     </p>
     <p>

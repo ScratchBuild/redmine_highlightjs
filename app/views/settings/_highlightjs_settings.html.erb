@@ -3,7 +3,7 @@
     <tr>
       <th><label for="settings_theme"><%= l(:highlighting_theme) %></label></th>
       <td><%= select_tag('settings[theme]',
-         options_for_select(CodeThemeUserSetting::CODE_THEMES, settings['theme'])) %>
+         options_for_select(CodeThemeUserSetting.code_themes, settings['theme'])) %>
           <span class="helpLink"> <%= l(:try_it_link) %> <a href="https://highlightjs.org/static/demo/" target="_blank">https://highlightjs.org/static/demo/</a> </span>
       </td>
     </tr>

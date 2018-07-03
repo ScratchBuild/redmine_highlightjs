@@ -11,9 +11,9 @@ Redmine::Plugin.register :redmine_highlightjs do
   url 'https://github.com/dominch/redmine_highlightjs'
   author_url 'http://dominik.net.pl/'
   description 'Adds much better syntax highlighting with autodetection'
-  version '1.0.3'
-  settings :default => {'theme' => 'monokai_sublime'}, :partial => 'settings/highlightjs_settings'
-  requires_redmine :version_or_higher => '2.1.0'
+  version '1.0.4'
+  settings default: { 'theme' => 'monokai_sublime' }, partial: 'settings/highlightjs_settings'
+  requires_redmine version_or_higher: '3.0.0'
 end
 
 ActionDispatch::Callbacks.to_prepare do
@@ -22,7 +22,5 @@ end
 
 Rails.configuration.to_prepare do
   require_dependency 'user_preference'
-  unless UserPreference.included_modules.include? CodeThemeUserPreferencePatch
-    UserPreference.send(:include, CodeThemeUserPreferencePatch) 
-  end 
+  UserPreference.send(:include, CodeThemeUserPreferencePatch) unless UserPreference.included_modules.include? CodeThemeUserPreferencePatch
 end

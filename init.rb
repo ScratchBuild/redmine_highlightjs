@@ -13,7 +13,7 @@ Redmine::Plugin.register :redmine_highlightjs do
   description 'Adds much better syntax highlighting with autodetection'
   version '1.0.4'
   settings default: { 'theme' => 'monokai_sublime' }, partial: 'settings/highlightjs_settings'
-  requires_redmine version_or_higher: '3.0.0'
+  requires_redmine version_or_higher: '3.4.0'
 end
 
 ActionDispatch::Callbacks.to_prepare do

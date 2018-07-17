@@ -1,9 +1,4 @@
-require 'redmine'
-require 'code_theme_my_account_hooks'
-require 'code_theme_user_patch'
-require 'code_theme_themes_patch'
-
-require_dependency 'hooks/view_highlighted_hook'
+require_dependency 'redmine_highlightjs'
 
 Redmine::Plugin.register :redmine_highlightjs do
   name 'Syntax highlighting with highlightjs'
@@ -16,11 +11,8 @@ Redmine::Plugin.register :redmine_highlightjs do
   requires_redmine version_or_higher: '3.4.0'
 end
 
-ActionDispatch::Callbacks.to_prepare do
-  require_dependency 'highlightjs_highlighting'
-end
-
-Rails.configuration.to_prepare do
-  require_dependency 'user_preference'
-  UserPreference.send(:include, CodeThemeUserPreferencePatch) unless UserPreference.included_modules.include? CodeThemeUserPreferencePatch
+if ActiveRecord::Base.connection.table_exists?(:settings)
+  Rails.configuration.to_prepare do
+    RedmineHighlightjs.setup
+  end
 end

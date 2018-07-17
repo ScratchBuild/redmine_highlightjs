@@ -1,4 +1,4 @@
-module HighlightJsSyntaxHighlighting
+module RedmineHighlightjs
   class << self
     def settings
       ActionController::Parameters.new(Setting[:plugin_redmine_highlightjs])
@@ -21,6 +21,17 @@ module HighlightJsSyntaxHighlighting
     def highlight_by_language(text, language)
       Rails.logger.info "redmine_highlightjs: syntax #{language}"
       ERB::Util.h(text)
+    end
+
+    def setup
+      # Patches
+      require_dependency 'redmine_highlightjs/patches/user_preference_patch'
+
+      # Global helpers
+      require_dependency 'redmine_highlightjs/helpers'
+
+      # Hooks
+      require_dependency 'redmine_highlightjs/hooks'
     end
   end
 end

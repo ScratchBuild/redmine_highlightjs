@@ -1,4 +1,4 @@
-class CreateCodeThemeUserSettings < ActiveRecord::Migration
+class CreateCodeThemeUserSettings < Rails.version < '5.2' ? ActiveRecord::Migration : ActiveRecord::Migration[4.2]
   def self.up
     create_table :code_theme_user_settings do |t|
       t.column :user_id, :integer

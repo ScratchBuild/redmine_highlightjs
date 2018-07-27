@@ -26,7 +26,3 @@ module RedmineHighlightjs
     end
   end
 end
-
-unless UserPreference.included_modules.include? RedmineHighlightjs::Patches::UserPreferencePatch
-  UserPreference.send(:include, RedmineHighlightjs::Patches::UserPreferencePatch)
-end

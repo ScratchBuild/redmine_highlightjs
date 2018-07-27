@@ -25,10 +25,8 @@ module RedmineHighlightjs
 
     def setup
       # Patches
-      require_dependency 'redmine_highlightjs/patches/user_preference_patch'
-
-      # Global helpers
-      require_dependency 'redmine_highlightjs/helpers'
+      UserPreference.send(:include, RedmineHighlightjs::Patches::UserPreferencePatch)
+      ActionView::Base.send :include, RedmineHighlightjs::Helpers
 
       # Hooks
       require_dependency 'redmine_highlightjs/hooks'

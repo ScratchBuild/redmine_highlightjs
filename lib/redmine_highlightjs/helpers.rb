@@ -1,4 +1,4 @@
-module RedmineRedmineHighlightjs
+module RedmineHighlightjs
   module Helpers
     def code_theme
       setting = CodeThemeUserSetting.find_code_theme_by_user_id(User.current.id)
@@ -8,5 +8,3 @@ module RedmineRedmineHighlightjs
     end
   end
 end
-
-ActionView::Base.send :include, RedmineRedmineHighlightjs::Helpers

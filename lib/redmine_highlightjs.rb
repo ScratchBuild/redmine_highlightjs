@@ -13,16 +13,6 @@ module RedmineHighlightjs
       false
     end
 
-    def highlight_by_filename(text, filename)
-      Rails.logger.info "redmine_highlightjs: syntax by filename #{filename}"
-      ERB::Util.h(text)
-    end
-
-    def highlight_by_language(text, language)
-      Rails.logger.info "redmine_highlightjs: syntax #{language}"
-      ERB::Util.h(text)
-    end
-
     def setup
       # Patches
       UserPreference.send(:include, RedmineHighlightjs::Patches::UserPreferencePatch)
@@ -30,6 +20,19 @@ module RedmineHighlightjs
 
       # Hooks
       require_dependency 'redmine_highlightjs/hooks'
+    end
+  end
+end
+
+# Use with Redmine::SyntaxHighlighting
+module HighlightJs
+  class << self
+    def highlight_by_filename(text, _filename)
+      ERB::Util.h(text)
+    end
+
+    def highlight_by_language(text, _language)
+      ERB::Util.h(text)
     end
   end
 end

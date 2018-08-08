@@ -7,7 +7,7 @@ Redmine::Plugin.register :redmine_highlightjs do
   author_url 'http://dominik.net.pl/'
   description 'Adds much better syntax highlighting with autodetection'
   version '1.0.4'
-  settings default: { 'theme' => 'monokai_sublime' }, partial: 'settings/highlightjs_settings'
+  settings default: { 'theme' => 'monokai-sublime' }, partial: 'settings/highlightjs_settings'
   requires_redmine version_or_higher: '3.4.0'
 end
 

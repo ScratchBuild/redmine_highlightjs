@@ -1,14 +1,14 @@
-# HighlightJS Plugin 
+# HighlightJS Plugin
 
-A redmine plugin to highlight code blocks much better than coderay! :) 
-135 languages with autodetection feature, 65 color themes, multi language code highlight (like http+json) 
+A redmine plugin to highlight code blocks much better than coderay! :)
+135 languages with autodetection feature, 65 color themes, multi language code highlight (like http+json)
 Try Your language and choose best theme for You: https://highlightjs.org/static/demo/
 
-Old good coderay: 
+Old good coderay:
 
 ![](https://raw.githubusercontent.com/dominch/redmine_highlightjs/master/screenshots/coderay.png)
 
-Example highlihts (monokai_sublime theme) - json, http+json:
+Example highlihts (monokai-sublime theme) - json, http+json:
 
 ![](https://raw.githubusercontent.com/dominch/redmine_highlightjs/master/screenshots/highlightjs.png)
 
@@ -26,19 +26,19 @@ Supported languages and markups in build: 1c accesslog actionscript apache apple
 
 # Browser Restrictions
 
-Plugin is restricted to work with following browsers (or newer): 
+Plugin is restricted to work with following browsers (or newer):
 
       Browser.new('Safari', '2'),
       Browser.new('Firefox', '3'),
       Browser.new('Chrome', '10'),
       Browser.new('Internet Explorer', '9')
 
-If You find out that there are some problems with Your browser then report bug in github, so we can turn it off for selected software. Some people still using old browsers like IE8, when others are up to date. IE8 is unsupported by main lib so there is nothing better than turning on coderay again. 
+If You find out that there are some problems with Your browser then report bug in github, so we can turn it off for selected software. Some people still using old browsers like IE8, when others are up to date. IE8 is unsupported by main lib so there is nothing better than turning on coderay again.
 
 # Usage
 
-This plugin will replace existing Coderay highlights, 
-You can specify target language like usual: 
+This plugin will replace existing Coderay highlights,
+You can specify target language like usual:
 
     <pre><code class="json">
     [
@@ -55,7 +55,7 @@ You can specify target language like usual:
     ]
     </code></pre>
 
-or use autodetection: 
+or use autodetection:
 
     <pre><code>
     [
@@ -72,14 +72,14 @@ or use autodetection:
     ]
     </code></pre>
 
-Autodetection works great with more than one language on the board, like http with appliction/json body: 
+Autodetection works great with more than one language on the board, like http with appliction/json body:
 
     <pre><code>
     POST /task?id=1 HTTP/1.1
     Host: example.org
     Content-Type: application/json; charset=utf-8
     Content-Length: 19
-    
+
     {"status": "ok", "extended": true}
     </code></pre>
 
@@ -87,11 +87,11 @@ To disable highlighting altogether use the nohighlight class:
 
     <pre><code class="nohighlight">...</code></pre>
 
-Plugin additionaly trims white lines from start and end so  
+Plugin additionaly trims white lines from start and end so
 
     <pre><code>{"status": "ok", "extended": true}</code></pre>
 
-is equal to: 
+is equal to:
 
     <pre><code>
     {"status": "ok", "extended": true}
@@ -100,17 +100,17 @@ is equal to:
 # Build Your own HighlightJS version
 
 If You need subset of supported languages follow instruction on highlightJS site: http://highlightjs.readthedocs.org/en/latest/building-testing.html
-Just replace redmine_highlightjs/assets/javascript/highlight.pack.min.js with Your build 
+Just replace redmine_highlightjs/assets/javascript/highlight.pack.min.js with Your build
 
 For Your new language definition follow instructions here: http://highlightjs.readthedocs.org/en/latest/language-guide.html
 
-# FAQ: 
+# FAQ:
 
-### Line numbers? 
+### Line numbers?
 
 No, that probably never happens! http://highlightjs.readthedocs.org/en/latest/line-numbers.html
 
-This plugin removes line numbers from file-view too in order to get one block to highlight. 
+This plugin removes line numbers from file-view too in order to get one block to highlight.
 
 
 # License

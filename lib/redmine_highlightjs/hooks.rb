@@ -6,13 +6,13 @@ module RedmineHighlightjs
       begin
         Redmine::SyntaxHighlighting.highlighter = 'HighlightJs'
       rescue StandardError => e
-        Rails.logger.info "redmine_highlightjs2: cannot turn off CodeRay. , Error: #{e.message}"
+        Rails.logger.info "redmine_highlightjs2: cannot turn off CodeRay. Error: #{e.message}"
       end
 
       RedmineHighlightjs.settings[:allow_redefine] && User.current.preference.present? && theme = User.current.preference.code_theme
 
       theme = RedmineHighlightjs.settings[:theme] if theme.blank? || theme == CodeThemeUserSetting::DEFAULT_CODE_THEME
-      theme = 'monokai_sublime' if theme.blank?
+      theme = 'monokai-sublime' if theme.blank?
 
       stylesheet_link_tag("themes/#{theme}.css", plugin: 'redmine_highlightjs', media: 'screen') +
         stylesheet_link_tag('fixes.css', plugin: 'redmine_highlightjs', media: 'screen') +

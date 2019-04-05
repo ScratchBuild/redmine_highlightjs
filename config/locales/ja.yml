@@ -1,0 +1,8 @@
+# Japanese strings go here for Rails i18n
+ja:
+  supported_languages: このビルドでサポートしているマークアップ言語
+  highlighting_theme: 使用するHighlightテーマ
+  try_it_link: "オンラインデモでテーマを試す:"
+  code_theme: Highlight Codeテーマ
+  code_theme_title: Highlight Codeテーマを再定義
+  allow_redefine: ユーザーによる再定義を許可
